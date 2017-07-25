@@ -1,4 +1,4 @@
-all: clean bin/main.elf
+all: folder clean bin/main.elf
 
 CC = arm-none-eabi-gcc
 AR = arm-none-eabi-ar
@@ -34,3 +34,6 @@ obj/main.o: src/main.c
 
 bin/main.out: obj/main.o inc/mkl25z4.ld obj/libbare.a
 	$(CC) $(CFLAGS) -T inc/mkl25z4.ld -o $@ $< obj/libbare.a
+
+folder:
+	mkdir -p bin
